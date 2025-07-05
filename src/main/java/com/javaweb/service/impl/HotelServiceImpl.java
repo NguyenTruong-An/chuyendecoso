@@ -31,12 +31,12 @@ public class HotelServiceImpl implements HotelService {
     @Override
     public List<HotelSearchResponse> findAll(HotelSearchRequest request) {
         List<HotelEntity> hotelEntities = hotelRepository.findAll(request);
-        List<HotelSearchResponse> hotelSearchRespons = new ArrayList<>();
+        List<HotelSearchResponse> hotelSearchResponses = new ArrayList<>();
         for (HotelEntity hotelEntity : hotelEntities) {
             HotelSearchResponse hotelSearchResponse = hotelConverter.toHotelSearchResponseDTO(hotelEntity);
-            hotelSearchRespons.add(hotelSearchResponse);
+            hotelSearchResponses.add(hotelSearchResponse);
         }
-        return hotelSearchRespons;
+        return hotelSearchResponses;
     }
 
     @Override

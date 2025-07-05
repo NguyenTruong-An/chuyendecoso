@@ -37,6 +37,15 @@ public class HotelEntity extends BaseEntity {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "maxsize")
+    private Long maxSize;
+
+    @Column(name = "level")
+    private String level;
+
+    @Column(name = "status")
+    private String status;
+
     @OneToMany(mappedBy = "hotelEntity", fetch = FetchType.LAZY)
     @JsonManagedReference
     private List<AssignmentHotelEntity> assignmentHotelEntities;

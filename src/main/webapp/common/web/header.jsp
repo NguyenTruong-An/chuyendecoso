@@ -30,12 +30,6 @@
 
 		<div class="row navbar">
 			<div class="col-12 col-md-3">
-				<div class="logo">
-					<a href="">
-						<img src="https://bizweb.dktcdn.net/100/328/362/themes/894751/assets/logo.png?1676257083798"
-							 alt="">
-					</a>
-				</div>
 			</div>
 			<div class="col-12 col-md-6">
 				<div class="item-menu">

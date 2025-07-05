@@ -1,10 +1,6 @@
 package com.javaweb.utils;
 
 public final class StringUtils {
-	public static boolean check(String data) { 
-		if(data != null && !data.equals(""))return true;
-		else return false;
-	}
 
 	public static boolean isNotBlank(String value) {
 		if(value!=null && !value.isEmpty()) return true;
@@ -18,6 +14,11 @@ public final class StringUtils {
 			return false;
 		}
 		return true;
+	}
+
+	public static boolean check(Object data) {
+		if(data != null && !data.equals(""))return true;
+		else return false;
 	}
 
 }

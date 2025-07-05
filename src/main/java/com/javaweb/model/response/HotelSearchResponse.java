@@ -18,5 +18,7 @@ public class HotelSearchResponse extends AbstractDTO {
     private String emptyArea;
 	private String description;
     private Long rentPrice;
-
+	private Long maxSize;
+	private String status;
+	private String level;
 }

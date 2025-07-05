@@ -9,7 +9,7 @@
 <%@include file="/common/taglib.jsp"%>
 <html>
     <head>
-        <title>Danh sách tòa nhà</title>
+        <title>Danh sách khách sạn</title>
     </head>
     <body>
         <div class="main-content" style="font-family: 'Times New Roman', Times, serif;">
@@ -98,6 +98,28 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-xs-12">
+                                            <div class="col-xs-4">
+                                                <label> Quận </label>
+                                                    <form:select path="status" class="form-control">
+                                                        <form:option value="">---Chọn trạng thái---</form:option>
+                                                        <form:options items="${hotelStatus}"/>
+                                                    </form:select>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <label> Hạng phòng </label>
+                                                    <form:select path="level" class="form-control">
+                                                        <form:option value="">---Chọn hạng phòng---</form:option>
+                                                        <form:options items="${hotelLevel}"/>
+                                                    </form:select>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <label> Số lượng người tối đa </label>
+                                                    <form:input class="form-control" path="maxSize" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
                                             <div class="col-xs-3">
                                                 <label> Diện tích từ </label>
                                                     <form:input class="form-control" path="floorAreaFrom" />
@@ -119,7 +141,7 @@
                                     <div class="form-group">
                                         <div class="col-xs-12">
                                             <div class="col-xs-6">
-                                                <button type="button" class="btn btn-purple btn-sm"
+                                                <button type="button" class="btn btn-primary btn-sm"
                                                         id="btnSearchHotel">
 														<span
                                                                 class="ace-icon fa fa-search icon-on-right bigger-110"></span>
@@ -179,9 +201,12 @@
                             </th>
                             <th>Tên tòa nhà</th>
                             <th>Địa chỉ</th>
+                            <th>Hạng</th>
                             <th>Diện tích sàn</th>
+                            <th>Số người tối đa</th>
                             <th>Mô tả giá</th>
                             <th>Giá thuê</th>
+                            <th>Trạng thái</th>
                             <th>Thao tác</th>
                         </tr>
                         </thead>
@@ -197,9 +222,12 @@
 
                                     <td>${hotel.name}</td>
                                     <td>${hotel.address}</td>
+                                    <td>${hotel.level}</td>
                                     <td>${hotel.floorArea}</td>
+                                    <td>${hotel.maxSize}</td>
                                     <td>${hotel.description}</td>
                                     <td>${hotel.rentPrice}</td>
+                                    <td>${hotel.status}</td>
                                     <td>
                                         <div class="hidden-sm hidden-xs btn-group">
                                             <button class="btn btn-xs btn-success" onclick="assignmentHotel(${hotel.id})" title="Giao tòa nhà">

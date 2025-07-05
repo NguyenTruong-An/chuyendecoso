@@ -12,6 +12,9 @@ public class HotelSearchRequest extends AbstractDTO {
     private String district;
     private String ward;
     private String street;
+    private String status;
+    private String level;
+    private Long maxSize;
     private Long floorAreaFrom;
     private Long floorAreaTo;
     private Long rentPriceFrom;

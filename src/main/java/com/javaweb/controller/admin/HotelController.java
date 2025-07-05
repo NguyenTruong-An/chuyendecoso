@@ -3,6 +3,8 @@ package com.javaweb.controller.admin;
 
 
 import com.javaweb.enums.District;
+import com.javaweb.enums.HotelLevel;
+import com.javaweb.enums.HotelStatus;
 import com.javaweb.model.dto.HotelDTO;
 import com.javaweb.model.request.HotelSearchRequest;
 import com.javaweb.model.response.HotelSearchResponse;
@@ -30,6 +32,8 @@ public class HotelController {
         modelAndView.addObject("modelSearch", hotelSearchRequest);
         modelAndView.addObject("staffs", userService.getStaffs());
         modelAndView.addObject("districts", District.getDistrict());
+        modelAndView.addObject("hotelStatus", HotelStatus.getStatus());
+        modelAndView.addObject("hotelLevel", HotelLevel.getLevel());
         List<HotelSearchResponse> hotelSearchResponse = hotelService.findAll(hotelSearchRequest);
         modelAndView.addObject("hotelSearchResponses", hotelSearchResponse);
         return modelAndView;

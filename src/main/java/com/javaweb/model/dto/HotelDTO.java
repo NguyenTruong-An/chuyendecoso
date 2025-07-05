@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class HotelDTO extends AbstractDTO{
     private Long id;
-    @NotBlank(message = "Building name not be blank")
+    @NotBlank(message = "Hotel name not be blank")
     private String name;
     private String street;
     private String ward;
@@ -22,6 +22,9 @@ public class HotelDTO extends AbstractDTO{
     @NotNull(message = "Rent price not be null")
     @Min(value = 5, message = "Rent price must >= 5")
     private Long rentPrice;
+    private String status;
+    private Long maxSize;
+    private String level;
     private String image;
     private String imageBase64;
     private String imageName;

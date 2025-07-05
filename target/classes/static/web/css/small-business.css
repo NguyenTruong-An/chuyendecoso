@@ -15,7 +15,7 @@
 }
 
 :root {
-  --primary-color: #35BF76;
+  --primary-color: #35bf76;
   --color-text: #434A6E;
 }
 
@@ -202,7 +202,7 @@ a{
   font-weight: 600;
   background-color: #25975A;
   width: 100%;
-  margin-top: 9.5%;
+  margin-top: 0.5rem;
 }
 
 .search-btn-text:hover {
@@ -277,6 +277,18 @@ a{
   height: 15.525rem;
 }
 
+.product99-image {
+  background: url("../../img/img.png") center / cover no-repeat;
+  width: 100%;
+  height: 15.525rem;
+}
+
+.product100-image {
+  background: url("../../img/img_1.png") center / cover no-repeat;
+  width: 100%;
+  height: 15.525rem;
+}
+
 .product3-image {
   background: url(https://bizweb.dktcdn.net/thumb/grande/100/328/362/products/97493029.jpg?v=1534497006637) center / cover no-repeat;
   width: 100%;
@@ -306,6 +318,7 @@ a{
   -webkit-box-orient: vertical;
   overflow: hidden;
   padding-top: 0.7rem;
+  flex-grow: 1;
 }
 
 .product1-conntent-list {
@@ -330,6 +343,8 @@ a{
   padding: 0.8rem 1.2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
 }
 
 .product1-footer-cost {
@@ -661,7 +676,15 @@ h4 {
 .item-tintuc img {
   width: 100%;
 }
+.star-rating {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
 
+.star-rating i {
+  font-size: 5rem;
+}
 
 
 

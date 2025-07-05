@@ -75,7 +75,7 @@
                     <div class="google-map margin-bottom-30">
                         <div class="maps_iframe">
                             <iframe style="width: 100%;"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.577731862711!2d106.7695372142139!3d10.850261760047032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f8d0e993b05%3A0x8abf4c480f8b822b!2zOTcgTWFuIFRoacOqbiwgUGjDuiBIaeG7h3AgSMaw4budYywgbmjhuq10IHPDumMgVHJ1w6JuIFbEg25nLCBWaeG7h3QgTmFt!5e0!3m2!1sen!2s!4v1652520257601!5m2!1sen!2s"
+                                    src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7450.510112659226!2d105.79711856773685!3d20.98241071503339!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1750816202431!5m2!1svi!2s"
                                     width="600" height="450" style="border:0;" allowfullscreen=""
                                     loading="lazy"></iframe>
                         </div>
@@ -89,15 +89,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <h2 class="title-lienhe"><strong>Công ty cổ phần bất động sản SkyLand</strong></h2>
+                    <h2 class="title-lienhe"><strong></strong></h2>
                     <div class="desc-lienhe">
-                        <p>Được thành lập vào ngày 20/08/2008 với niềm đam mê và khát vọng thành công trong lĩnh vực
-                            bất động sản. Nhờ chiến lược rõ ràng và hướng đi đúng, SkyLand đã nhanh chóng phát triển
-                            và đạt được những thành công nhất định.</p>
                         <ul class="margin-bottom-15 link" style="list-style-type: none;">
                             <li>
                                 <span class="block_fonticon"><i class="fa fa-map-marker icon-lienhe"></i></span>
-                                <span class="title-li"> 46 Man Thiện, TP. Thủ Đức, TP. HCM</span>
+                                <span class="title-li"> 141 Chiến Thắng, Thanh Trì, TP Hà Nội</span>
                             </li>
                             <li>
                                 <span class="block_fonticon"><i class="fa fa-mobile icon-lienhe"></i></span>
@@ -140,11 +137,6 @@
         <div class="container">
             <div class="top-footer text-center mt-0">
                 <div class="logo logo-footer pt-5">
-                    <a href="./ViewHome.html"><img src="https://bizweb.dktcdn.net/100/328/362/themes/894751/assets/logo_footer.png?1676257083798" alt="logo-footer"></a>
-                    <p class="desc-logo-footer mt-3">Với hơn 10 năm kinh nghiệm, SkyLand tự hào là sàn
-                        mua
-                        bán, giao dịch và quảng cáo
-                        bất động sản hàng đầu tại Việt Nam</p>
                     <div class="item-footer mt-5">
                         <div class="row">
                             <div class="col-12 col-md-4 text-center">
@@ -153,7 +145,7 @@
                                 </div>
                                 <div class="content-center-footer">
                                     <p class="mb-1 mt-3">Trụ sở chính</p>
-                                    <p class="desc-footer">Số 46 Man Thiện, TP Thủ Đức, TP HCM</p>
+                                    <p class="desc-footer">141 Chiến Thắng, Thanh Trì, TP Hà Nội</p>
                                 </div>
                             </div>
                             <div class="col-12 col-md-4 text-center">
@@ -182,54 +174,6 @@
                     <div class="border-bottom mb-5 mt-4"></div>
                 </div>
             </div>
-            <div class="bottom-footer">
-                <div class="row">
-                    <div class="col-12 col-md-3">
-                        <h4 class="title-item-bottom-footer">Thông tin công ty</h4>
-                        <p class="desc-item-bottom-footer desc-1"><a class="a-text" href="">Trang
-                            chủ</a></p>
-                        <p class="desc-item-bottom-footer"><a class="a-text" href="">Giới thiệu</a></p>
-                        <p class="desc-item-bottom-footer"><a class="a-text" href="">Dự án bất động
-                            sản</a></p>
-                        <p class="desc-item-bottom-footer"><a class="a-text" href="">Tin tức</a></p>
-                        <p class="desc-item-bottom-footer"><a class="a-text" href="">Liên hệ</a></p>
-                    </div>
-                    <div class="col-12 col-md-3">
-                        <h4 class="title-item-bottom-footer">Chính sách hoạt động</h4>
-                        <p class="desc-item-bottom-footer desc-1"><a class="a-text" href="">Trang
-                            chủ</a></p>
-                        <p class="desc-item-bottom-footer"><a class="a-text" href="">Giới thiệu</a></p>
-                        <p class="desc-item-bottom-footer"><a class="a-text" href="">Dự án bất động
-                            sản</a></p>
-                        <p class="desc-item-bottom-footer"><a class="a-text" href="">Tin tức</a></p>
-                        <p class="desc-item-bottom-footer"><a class="a-text" href="">Liên hệ</a></p>
-                    </div>
-                    <div class="col-12 col-md-3">
-                        <h4 class="title-item-bottom-footer">Hỗ trợ khách hàng</h4>
-                        <p class="desc-item-bottom-footer desc-1"><a class="a-text" href="">Trang
-                            chủ</a></p>
-                        <p class="desc-item-bottom-footer"><a class="a-text" href="">Giới thiệu</a></p>
-                        <p class="desc-item-bottom-footer"><a class="a-text" href="">Dự án bất động
-                            sản</a></p>
-                        <p class="desc-item-bottom-footer"><a class="a-text" href="">Tin tức</a></p>
-                        <p class="desc-item-bottom-footer"><a class="a-text" href="">Liên hệ</a></p>
-                    </div>
-                    <div class="col-12 col-md-3">
-                        <h4 class="title-item-bottom-footer">Kết nối với chúng tôi</h4>
-                        <p class="desc-item-bottom-footer desc-1"><a class="a-text" href="">Trang
-                            chủ</a></p>
-                        <p class="desc-item-bottom-footer"><a class="a-text" href="">Giới thiệu</a></p>
-                        <p class="desc-item-bottom-footer"><a class="a-text" href="">Dự án bất động
-                            sản</a></p>
-                        <p class="desc-item-bottom-footer"><a class="a-text" href="">Tin tức</a></p>
-                        <p class="desc-item-bottom-footer"><a class="a-text" href="">Liên hệ</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="bottom-footer-2">
-            <div class="text-center desc-bottom-footer-2">@ Bản quyền thuộc về Happy Team |
-                Cung cấp bởi <a class="a-text group-name" href="#">HappyTeam</a></div>
         </div>
     </footer>
 </div>

@@ -10,10 +10,8 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.transaction.Transactional;
 import java.lang.reflect.Field;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Repository
 @Primary
@@ -33,7 +31,7 @@ public class HotelRepositoryImpl implements HotelRepositoryCustom {
             for (Field item : field) {
                 item.setAccessible(true);
                 String key = item.getName();
-                if (!key.equals("staffId") && !key.startsWith("rentPrice")) {
+                if (!key.equals("staffId") && !key.startsWith("rentPrice") && !key.startsWith("floorArea")) {
                     Object value = item.get(hotelSearchRequest);
                     if (value != null && !value.equals("")) {
                         if (StringUtils.isNumber(value)) {
@@ -51,10 +49,10 @@ public class HotelRepositoryImpl implements HotelRepositoryCustom {
             where.append(" AND ab.staffid = " + hotelSearchRequest.getStaffId());
         }
         if (hotelSearchRequest.getFloorAreaFrom() != null) {
-            where.append(" AND r.value >= " + hotelSearchRequest.getFloorAreaFrom());
+            where.append(" AND h.floorArea >= " + hotelSearchRequest.getFloorAreaFrom());
         }
         if (hotelSearchRequest.getFloorAreaTo() != null) {
-            where.append(" AND r.value <= " + hotelSearchRequest.getFloorAreaTo());
+            where.append(" AND h.floorArea <= " + hotelSearchRequest.getFloorAreaTo());
         }
         if (hotelSearchRequest.getRentPriceFrom() != null) {
             where.append(" AND h.rentprice >= " + hotelSearchRequest.getRentPriceFrom());
