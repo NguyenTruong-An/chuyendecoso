@@ -253,8 +253,10 @@ a{
 
 .product1 {
   /* width: 23.125rem; */
-  position: relative;
-  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
 }
 
 .product1:hover, .product2:hover {

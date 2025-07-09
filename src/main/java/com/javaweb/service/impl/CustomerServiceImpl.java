@@ -7,6 +7,7 @@ import com.javaweb.enums.Status;
 import com.javaweb.model.dto.CustomerDTO;
 import com.javaweb.model.request.CustomerSearchRequest;
 import com.javaweb.model.response.ResponseDTO;
+import com.javaweb.model.response.StaffResponseDTO;
 import com.javaweb.repository.CustomerRepository;
 import com.javaweb.repository.UserRepository;
 import com.javaweb.repository.custom.CustomerRepositoryCustom;
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -82,5 +84,39 @@ public class CustomerServiceImpl implements CustomerService {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public void deleteCustomer(List<Long> ids) {
+        List<CustomerEntity> customerEntities = customerRepository.findAllById(ids);
+        for(CustomerEntity customerEntity : customerEntities) {
+            customerEntity.setIsActive(0);
+        }
+        customerRepository.saveAll(customerEntities);
+    }
+
+    @Override
+    public ResponseDTO getStaff(Long id) {
+        //lay ra tat ca nhan vien
+        List<UserEntity> userEntities = userRepository.findByStatusAndRoles_Code(1,"STAFF");
+        //lay ra staff dang quan li toa nha
+        CustomerEntity customerEntity = customerRepository.findCustomerEntitiesById(id);
+        List<UserEntity> staffs = customerEntity.getUsers();
+        List<StaffResponseDTO> staffResponseDTOS = new ArrayList<>();
+        for (UserEntity userEntity : userEntities) {
+            StaffResponseDTO staffResponseDTO = new StaffResponseDTO();
+            staffResponseDTO.setFullName(userEntity.getFullName());
+            staffResponseDTO.setStaffId(userEntity.getId());
+            if(staffs.contains(userEntity)) {
+                staffResponseDTO.setChecked("checked");
+            }else {
+                staffResponseDTO.setChecked("");
+            }
+            staffResponseDTOS.add(staffResponseDTO);
+        }
+        ResponseDTO responseDTO = new ResponseDTO();
+        responseDTO.setData(staffResponseDTOS);
+        responseDTO.setMessage("Load staff success");
+        return responseDTO;
     }
 }

@@ -79,6 +79,12 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-xs-3 control-label">Số lượng người tối đa</label>
+                            <div class="col-xs-5">
+                                <form:input class="form-control" path="maxSize"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-xs-3 control-label">Giá thuê</label>
                             <div class="col-xs-5">
                                 <form:input class="form-control" path="rentPrice"/>
@@ -89,6 +95,24 @@
                             <label class="col-xs-3 control-label">Mô tả giá</label>
                             <div class="col-xs-5">
                                 <form:input class="form-control" path="description"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-3 control-label">Hạng</label>
+                            <div class="col-xs-3">
+                                <form:select path="level" class="form-control">
+                                    <form:option value="">---Chọn hạng---</form:option>
+                                    <form:options items="${hotelLevel}"/>
+                                </form:select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-3 control-label">Trạng thái</label>
+                            <div class="col-xs-3">
+                                <form:select path="status" class="form-control">
+                                    <form:option value="">---Chọn trạng thái---</form:option>
+                                    <form:options items="${hotelStatus}"/>
+                                </form:select>
                             </div>
                         </div>
                         <div class="form-group">

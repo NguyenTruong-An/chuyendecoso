@@ -43,6 +43,8 @@ public class HotelController {
     public ModelAndView createHotel(@ModelAttribute HotelDTO hotelDTO) {
         ModelAndView modelAndView = new ModelAndView("admin/hotel/edit");
         modelAndView.addObject("hotelEdit", hotelDTO);
+        modelAndView.addObject("hotelLevel", HotelLevel.getLevel());
+        modelAndView.addObject("hotelStatus", HotelStatus.getStatus());
         modelAndView.addObject("districts", District.getDistrict());
 
         return modelAndView;
@@ -53,6 +55,8 @@ public class HotelController {
         ModelAndView modelAndView = new ModelAndView("admin/hotel/edit");
         //findByID dưới service và convert qua DTO
         modelAndView.addObject("districts", District.getDistrict());
+        modelAndView.addObject("hotelLevel", HotelLevel.getLevel());
+        modelAndView.addObject("hotelStatus", HotelStatus.getStatus());
         HotelDTO hotelDTO = hotelService.findById(id);
         modelAndView.addObject("hotelEdit", hotelDTO);
         return modelAndView;

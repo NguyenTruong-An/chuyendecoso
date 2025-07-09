@@ -14,4 +14,6 @@ public interface CustomerService {
     int countCustomer(CustomerSearchRequest request);
     boolean isStaffOfCustomer(Long staffId, Long customerId);
     CustomerDTO findByIdandIsActive(Long id, Integer isActive) throws Exception;
+    void deleteCustomer(List<Long> ids);
+    ResponseDTO getStaff(Long id);
 }

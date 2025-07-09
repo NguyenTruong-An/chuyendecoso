@@ -189,7 +189,7 @@
                                         </ul>
                                     </div>
                                     <div class="product1-footer">
-                                        <span class="product1-footer-cost">2,5 Tỷ</span>
+                                        <span class="product1-footer-cost">1 Tỷ</span>
                                         <button class="product1-footer-detail"><a href="./ChiTiet.html"
                                                                                   style="color:#fff">Xem chi
                                             tiết</a></button>

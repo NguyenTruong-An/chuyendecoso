@@ -90,6 +90,15 @@ public class HotelAPI {
         return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> loadHotels(@PathVariable Long id){
+        ResponseDTO responseDTO = new ResponseDTO();
+        HotelDTO hotelDTO = hotelService.findById(id);
+        responseDTO.setData(hotelDTO);
+        responseDTO.setMessage("Success");
+        return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
+    }
+
     @DeleteMapping("/{ids}")
     public ResponseEntity<?> deleteStaffs(@PathVariable List<Long> ids){
         ResponseDTO responseDTO = new ResponseDTO();

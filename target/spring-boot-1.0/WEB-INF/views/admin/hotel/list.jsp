@@ -99,7 +99,7 @@
                                     <div class="form-group">
                                         <div class="col-xs-12">
                                             <div class="col-xs-4">
-                                                <label> Quận </label>
+                                                <label> Trạng thái </label>
                                                     <form:select path="status" class="form-control">
                                                         <form:option value="">---Chọn trạng thái---</form:option>
                                                         <form:options items="${hotelStatus}"/>
@@ -171,7 +171,7 @@
                                 Add
                             </button>
                         </a>
-
+                        <security:authorize access="hasAnyRole('MANAGER')">
                         <button class="btn btn-app btn-danger btn-xs" title="xóa khách sạn" id="btnDeleteHotel">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                  class="bi bi-building-dash" viewBox="0 0 16 16">
@@ -184,6 +184,7 @@
                             </svg>
                             Del
                         </button>
+                        </security:authorize>
                     </div>
                 </div><!-- /.span -->
             </div>
@@ -222,25 +223,27 @@
 
                                     <td>${hotel.name}</td>
                                     <td>${hotel.address}</td>
-                                    <td>${hotel.level}</td>
+                                    <td>${hotelLevel[hotel.level]}</td>
                                     <td>${hotel.floorArea}</td>
                                     <td>${hotel.maxSize}</td>
                                     <td>${hotel.description}</td>
                                     <td>${hotel.rentPrice}</td>
-                                    <td>${hotel.status}</td>
+                                    <td>${hotelStatus[hotel.status]}</td>
                                     <td>
                                         <div class="hidden-sm hidden-xs btn-group">
+                                            <security:authorize access="hasAnyRole('MANAGER')">
                                             <button class="btn btn-xs btn-success" onclick="assignmentHotel(${hotel.id})" title="Giao tòa nhà">
                                                 <i class="ace-icon fa fa-users"></i>
                                             </button>
+                                            </security:authorize>
                                             <a href="/admin/hotel-edit-${hotel.id}" class="btn btn-xs btn-info" title="Sửa tòa nhà">
                                                     <i class="ace-icon fa fa-pencil bigger-120"></i>
                                             </a>
-
-
+                                            <security:authorize access="hasAnyRole('MANAGER')">
                                             <button class="btn btn-xs btn-danger" onclick="deleteHotel(${hotel.id})" title="Xóa tòa nhà">
                                                 <i class="ace-icon fa fa-trash-o bigger-120"></i>
                                             </button>
+                                            </security:authorize>
 
                                         </div>
                                     </td>

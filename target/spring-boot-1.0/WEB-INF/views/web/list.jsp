@@ -74,19 +74,14 @@
         <div class="container">
             <div class="row">
                 <c:forEach var="hotel" items="${hotelSearchResponses}">
-                    <div class="col-12 col-md-4 mb-3 d-flex">
-                        <div class="product1 vip d-flex flex-column ">
+                    <div class="col-12 col-md-4 mb-3 ">
+                        <div class="product1 vip ">
                             <div class="product1-image new"></div>
 
-                            <div class="product1-conntent d-flex flex-column">
+                            <div class="product1-conntent d-flex flex-column flex-grow-1">
                             <div class="product1-conntent-header">
                                 <a href="">${hotel.name}</a>
                             </div>
-                            <span class="product1-conntent-title">Dự án Sky Park Residence số 3 Tôn Thất Thuyết đang
-                                    trong quá trình hoàn thiện để đáp ứng tiến độ bàn giao nhà trong năm 2018. Khách
-                                    hàng có thể thăm quan và giám sát trực tiếp chất lương công trình cũng như thưởng
-                                    ngoạn tầm view tuyệt đẹp ra hai công viên lớn nhất quận Cầu Giấy.
-                            </span>
                             <ul class="product1-conntent-list mt-auto">
                                 <li class="product1-conntent-item">
                                     <i class="fa-solid fa-location-dot"></i>
@@ -112,31 +107,50 @@
                         </div>
                          <div class="product1-footer ">
                             <span class="product1-footer-cost">${hotel.description}</span>
-                                <button class="product1-footer-detail"><a href="./ChiTiet.html" style="color:#fff">Xem
+                                <button class="product1-footer-detail"><a href="#" style="color:#fff">Xem
                                 chi
                                 tiết</a></button>
+                                <button class="product1-footer-detail" onclick="bookHotel(${hotel.id})"><a style="color:#fff">Đặt phòng
+                                </a></button>
                         </div>
                     </div>
                 </div>
                 </c:forEach>
             </div>
-        </div>
+            <div class="modal fade" id="bookHotelModal" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalLabel" aria-hidden="true" style="font-family: 'Times New Roman', Times, serif;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Đặt phòng</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <table id="staffList" class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th class="center">Tên khách sạn</th>
+                                    <th class="center">Giá</th>
+                                </tr>
+                                </thead>
 
-        <!-- TIEN TRINH  -->
-            <div class="container text-center">
-            <div class="shop-pag text-xs-right mt-5">
-                <nav class="text-center">
-                    <ul class="pagination clearfix justify-content-center">
-                        <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
-                        <li class="active page-item disabled"><a class="page-link" href="javascript:;">1</a></li>
-                        <li class="page-item"><a class="page-link" onclick="doSearch(2)" href="javascript:;">2</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" onclick="doSearch(2)" href="javascript:;">»</a>
-                        </li>
-                    </ul>
-                </nav>
+                                <tbody>
+                                </tbody>
+                            </table>
+                            <input type="hidden" id="hotelId" value="">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy thao tác</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Đặt phòng</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+
         <!-- FOOTER  -->
             <footer class="footer">
             <div class="container">
@@ -184,7 +198,49 @@
     </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <<script>
+    <script>
+        function bookHotel(hotelId) {
+            const modal = new bootstrap.Modal(document.getElementById('bookHotelModal'));
+            modal.show();
+
+            $('#hotelId').val(hotelId);
+            loadHotel(hotelId);
+        }
+
+        function loadHotel(hotelId){
+            $.ajax({
+                type: "GET",
+                url: "/api/hotels/" + hotelId ,
+                dataType: "json", //expected data response
+                // contentType: "application/json",
+                success: function (response) {
+                    var row = '';
+                    const item = response.data;
+                        row += '<tr>';
+                        row += '<td class = "center">' + item.name + '</td>';
+                        row += '<td class = "center">' + item.description + '</td>';
+                        row += '</tr>'
+
+
+
+                    $('#staffList tbody').html(row);
+                    console.log(row);
+                    console.log(response);
+                },
+                error: function (response) {
+                    console.log('fail');
+                    //alert(response.error);
+                },
+            })
+        }
+
+        $(document).ready(function () {
+            $('#btnSearchHotel1').click(function (e) {
+                e.preventDefault();
+                $('#listForm1').submit();
+            });
+        });
+
     $(document).ready(function () {
         $('#btnSearchHotel1').click(function (e) {
             e.preventDefault();

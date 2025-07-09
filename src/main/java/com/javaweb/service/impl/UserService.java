@@ -3,6 +3,7 @@ package com.javaweb.service.impl;
 import com.javaweb.constant.SystemConstant;
 import com.javaweb.converter.UserConverter;
 import com.javaweb.entity.HotelEntity;
+import com.javaweb.exception.ServiceException;
 import com.javaweb.model.dto.PasswordDTO;
 import com.javaweb.model.dto.UserDTO;
 import com.javaweb.entity.RoleEntity;
@@ -15,6 +16,8 @@ import com.javaweb.repository.UserRepository;
 import com.javaweb.service.IUserService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.PermissionDeniedDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -117,6 +120,28 @@ public class UserService implements IUserService {
         return userRepository.countTotalItem();
     }
 
+    @Override
+    public UserEntity createUser(UserDTO userDTO) throws Exception {
+        if(userRepository.existsByUserName(userDTO.getUserName())){
+            throw new DataIntegrityViolationException("User name already exists");
+        }
+        List<RoleEntity> roleEntities=new ArrayList<>();
+        Optional<RoleEntity> roleOpt = roleRepository.findById(3L);
+        if (!roleOpt.isPresent()) {
+            throw new ServiceException("Role not found for ID: " + userDTO.getRoleId());
+        }
+        RoleEntity role = roleOpt.get();
+        roleEntities.add(role);
+        if(role.getName().equalsIgnoreCase("MANAGER")){
+            throw new PermissionDeniedDataAccessException("You cannot register an manager account",null);
+        }
+        UserEntity userEntity = userConverter.convertToEntity(userDTO);
+        userEntity.setRoles(roleEntities);
+        String encodedPassword=passwordEncoder.encode(userDTO.getPassword());
+        userEntity.setPassword(encodedPassword);
+        userEntity.setStatus(1);
+        return userRepository.save(userEntity);
+    }
 
 
     @Override

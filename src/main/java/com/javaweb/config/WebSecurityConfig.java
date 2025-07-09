@@ -4,6 +4,7 @@ import com.javaweb.security.CustomSuccessHandler;
 import com.javaweb.service.impl.CustomUserDetailService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -45,6 +46,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 http.csrf().disable()
                 .authorizeRequests()
                         //.antMatchers("/admin/building-edit").hasAnyRole("MANAGER")
+                        .antMatchers(HttpMethod.DELETE,"/api/customers/{ids}").hasRole("MANAGER")
+                        .antMatchers(HttpMethod.POST,"/api/transactions").hasAnyRole("MANAGER","STAFF")
+                        .antMatchers(HttpMethod.DELETE,"/api/transactions/{id}").hasRole("MANAGER")
+                        .antMatchers(HttpMethod.POST, "/api/assigments").hasAnyRole("MANAGER","STAFF")
+                        .antMatchers("/admin/customer-edit","/admin/customer-edit-{id}","/admin/customer-list").hasAnyRole("MANAGER","STAFF")
+                        .antMatchers("/admin/building-edit", "/admin/building-edit-{id}").hasAnyRole("MANAGER", "STAFF")
+                        .antMatchers(HttpMethod.DELETE, "/api/buildings/{ids}").hasRole("MANAGER")
+                        .antMatchers("/admin/user-list", "/admin/user-edit", "/admin/user-edit-{id}", "/api/user").hasAnyRole("MANAGER")
                         .antMatchers("/admin/**").hasAnyRole("MANAGER","STAFF","ADMIN")
                         .antMatchers("/login", "/resource/**", "/trang-chu", "/api/**").permitAll()
                 .and()

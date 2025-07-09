@@ -1,5 +1,6 @@
 package com.javaweb.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +15,9 @@ import java.util.List;
 public class RoleEntity extends BaseEntity {
 
     private static final long serialVersionUID = -6525302831793188081L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name="name")
     private String name;
@@ -24,7 +28,7 @@ public class RoleEntity extends BaseEntity {
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
-
+    @JsonBackReference
     @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
     private List<UserEntity> user = new ArrayList<>();
 

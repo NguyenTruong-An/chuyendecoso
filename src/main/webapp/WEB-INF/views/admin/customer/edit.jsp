@@ -236,11 +236,6 @@
       isValid = false;
     }
 
-    if (!json['demand'] || json['demand'].trim() === '') {
-      $('[name="demand"]').after('<span class="error-message" style="color: red">Nhu cầu không được để trống</span>');
-      isValid = false;
-    }
-
     if (!json['status'] || json['status'].trim() === '') {
       $('[name="status"]').after('<span class="error-message" style="color: red">Vui lòng chọn trạng thái</span>');
       isValid = false;
